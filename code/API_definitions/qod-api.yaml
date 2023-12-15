@@ -55,7 +55,7 @@ info:
 
     ![QoD Management API](https://raw.githubusercontent.com/camaraproject/QualityOnDemand/main/documentation/API_documentation/resources/QoD_details.PNG)
 
-    How QoS profiles are mapped to connectivity characteristics are subject to agreements between the communication service provider and the API invoker. Within the CAMARA project, you can find a sample for such a mapping of QoS profiles. [CAMARA QoS Profiles Mapping Table (REFERENCE DRAFT)](https://github.com/camaraproject/QualityOnDemand/blob/main/documentation/API_documentation/QoSProfile_Mapping_Table.md)
+    How QoS profiles are mapped to connectivity characteristics are subject to agreements between the communication service provider and the API invoker. Within the CAMARA project, you can find a sample for such a mapping of QoS profiles. [CAMARA QoS Profiles Mapping Table (REFERENCE DRAFT)](https://raw.githubusercontent.com/camaraproject/QualityOnDemand/blob/main/documentation/API_documentation/QoSProfile_Mapping_Table.md)
 
     # Further info and support
 
@@ -69,7 +69,7 @@ info:
   version: 0.10.0-rc
 externalDocs:
   description: Product documentation at Camara
-  url: https://github.com/camaraproject/
+  url: https://raw.githubusercontent.com/camaraproject/
 security:
   - oAuth2ClientCredentials: []
 servers:
@@ -126,15 +126,15 @@ paths:
                 "204":
                   description: Successful notification
                 "400":
-                  $ref: "#/components/responses/Generic400"
+                  $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/400"
                 "401":
-                  $ref: "#/components/responses/Generic401"
+                  $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/401"
                 "403":
-                  $ref: "#/components/responses/Generic403"
+                  $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/403"
                 "500":
-                  $ref: "#/components/responses/Generic500"
+                  $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/500"
                 "503":
-                  $ref: "#/components/responses/Generic503"
+                  $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/503"
               security:
                 - {}
                 - notificationsBearerAuth: []
@@ -146,86 +146,19 @@ paths:
               schema:
                 $ref: "#/components/schemas/SessionInfo"
         "400":
-          description: Invalid input for createSession operation
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorInfo"
-              examples:
-                Generic400:
-                  summary: Some parameter combinations or parameter values provided are not schema compliant
-                  value:
-                    status: 400
-                    code: INVALID_ARGUMENT
-                    message: "Schema validation failed at  ..."
-                DeviceMissing:
-                  summary: Device must be specified
-                  value:
-                    status: 400
-                    code: INVALID_ARGUMENT
-                    message: "Expected property is missing: device"
-                InsufficientDeviceProperties:
-                  summary: Device must be identified by at least one parameter
-                  value:
-                    status: 400
-                    code: INVALID_ARGUMENT
-                    message: "Insufficient properties specified: device"
-                InconsistentDeviceProperties:
-                  summary: Device parameters provided identify different devices
-                  value:
-                    status: 400
-                    code: INVALID_ARGUMENT
-                    message: "Multiple inconsistent parameters specified: device"
-                CannotIdentifyDevice:
-                  summary: No device can be identified from provided parameters
-                  value:
-                    status: 400
-                    code: INVALID_ARGUMENT
-                    message: "Unable to identify device from specified parameters: device"
-                InvalidDevicePublicPortValue:
-                  summary: Invalid port specified for device public port
-                  value:
-                    status: 400
-                    code: OUT_OF_RANGE
-                    message: "Invalid port value specified: device.ipv4Address.publicPort"
-                ApplicationServerMissing:
-                  summary: Application server must be specified
-                  value:
-                    status: 400
-                    code: INVALID_ARGUMENT
-                    message: "Expected property is missing: applicationServer"
-                QoSProfileMissing:
-                  summary: Required QoS profile must be specified
-                  value:
-                    status: 400
-                    code: INVALID_ARGUMENT
-                    message: "Expected property is missing: qosProfile"
-                InvalidDevicePortsRanges:
-                  summary: Invalid port ranges specified for devicePorts
-                  value:
-                    status: 400
-                    code: OUT_OF_RANGE
-                    message: "Invalid port ranges specified: devicePorts"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/main/artifacts/CAMARA_common_httpresponses.yaml"
         "401":
-          $ref: "#/components/responses/Generic401"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/401"
         "403":
-          $ref: "#/components/responses/Generic403"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/403"
         "409":
-          description: Conflict
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorInfo"
-              example:
-                status: 409
-                code: CONFLICT
-                message: "Another session is created for the same device"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/409"
         "500":
-          $ref: "#/components/responses/Generic500"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/500"
         "501":
-          $ref: "#/components/responses/Generic501"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/501"
         "503":
-          $ref: "#/components/responses/Generic503"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/503"
       security:
         - oAuth2ClientCredentials: []
         - threeLegged:
@@ -253,17 +186,17 @@ paths:
               schema:
                 $ref: "#/components/schemas/SessionInfo"
         "400":
-          $ref: "#/components/responses/Generic400"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/400"
         "401":
-          $ref: "#/components/responses/Generic401"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/401"
         "403":
-          $ref: "#/components/responses/Generic403"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/403"
         "404":
-          $ref: "#/components/responses/SessionNotFound404"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/404"
         "500":
-          $ref: "#/components/responses/Generic500"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/500"
         "503":
-          $ref: "#/components/responses/Generic503"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/503"
       security:
         - oAuth2ClientCredentials: []
         - threeLegged:
@@ -286,17 +219,17 @@ paths:
         "204":
           description: Session deleted
         "400":
-          $ref: "#/components/responses/Generic400"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/400"
         "401":
-          $ref: "#/components/responses/Generic401"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/401"
         "403":
-          $ref: "#/components/responses/Generic403"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/403"
         "404":
-          $ref: "#/components/responses/SessionNotFound404"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/404"
         "500":
-          $ref: "#/components/responses/Generic500"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/500"
         "503":
-          $ref: "#/components/responses/Generic503"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/503"
       security:
         - oAuth2ClientCredentials: []
         - threeLegged:
@@ -332,34 +265,17 @@ paths:
               schema:
                 $ref: "#/components/schemas/SessionInfo"
         "400":
-          description: Invalid input for extendQosSessionDuration operation
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorInfo"
-              examples:
-                Generic400:
-                  summary: Some parameter combinations or parameter values provided are not schema compliant
-                  value:
-                    status: 400
-                    code: INVALID_ARGUMENT
-                    message: "Schema validation failed at  ..."
-                InactiveSession:
-                  summary: The target session is inactive
-                  value:
-                    status: 400
-                    code: INVALID_ARGUMENT
-                    message: "The target session is inactive"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/400"
         "401":
-          $ref: "#/components/responses/Generic401"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/401"
         "403":
-          $ref: "#/components/responses/Generic403"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/403"
         "404":
-          $ref: "#/components/responses/SessionNotFound404"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/404"
         "500":
-          $ref: "#/components/responses/Generic500"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/500"
         "503":
-          $ref: "#/components/responses/Generic503"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/503"
       security:
         - oAuth2ClientCredentials: []
         - threeLegged:
@@ -396,15 +312,15 @@ paths:
                 items:
                   $ref: "#/components/schemas/QosProfile"
         "401":
-          $ref: "#/components/responses/Generic401"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/401"
         "403":
-          $ref: "#/components/responses/Generic403"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/403"
         "404":
-          $ref: "#/components/responses/QosProfilesNotFound404"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/404"
         "500":
-          $ref: "#/components/responses/QoSProfile500"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/500"
         "503":
-          $ref: "#/components/responses/Generic503"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/503"
 
   /qos-profiles/{name}:
     get:
@@ -428,17 +344,17 @@ paths:
               schema:
                 $ref: "#/components/schemas/QosProfile"
         "400":
-          $ref: "#/components/responses/Generic400"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/400"
         "401":
-          $ref: "#/components/responses/Generic401"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/401"
         "403":
-          $ref: "#/components/responses/Generic403"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/403"
         "404":
-          $ref: "#/components/responses/QosProfileNotFound404"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/404"
         "500":
-          $ref: "#/components/responses/QoSProfile500"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/500"
         "503":
-          $ref: "#/components/responses/Generic503"
+          $ref: "https://raw.githubusercontent.com/gmuratk/Commonalities/blob/main/artifacts/CAMARA_common_httpresponses.yaml#/components/responses/503"
 
 components:
   securitySchemes:
@@ -1041,133 +957,44 @@ components:
         - AVAILABLE
         - UNAVAILABLE
 
-    ErrorInfo:
-      type: object
-      properties:
-        status:
-          type: integer
-          description: HTTP status code returned along with this error response
-        code:
-          type: string
-          description: Code given to this error
-        message:
-          type: string
-          description: Detailed error description
-      required:
-        - status
-        - code
-        - message
 
-  responses:
-    Generic400:
-      description: Invalid input
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorInfo"
-          example:
-            status: 400
-            code: INVALID_ARGUMENT
-            message: "Schema validation failed at  ..."
+    ApiSpecificErrorCauses:
+      description: |
+        List of API specific error 'machine readable' cause property (see Commonalities/blob/main/artifacts/CAMARA_common#/components/schemas/ProblemDetails) and 'human-readable' explanations
+        * INVALID_DEVICE_PORT - Invalid port ranges specified: devicePorts
+        * QOS_PROFILE_MISSING - Expected property is missing: qosProfile
+        * APPLICATION_SERVER_MISSING - Expected property is missing: applicationServer
+        * QOS_PROFILE_NOT_FOUND - QosProfile Id does not exist
+        * SESSION_NOT_FOUND - Session Id does not exist
+        * CONFLICT - Another session is already created
+        * SCHEMA_VALIDATION - Schema validation failed 
+        * INACTIVE_SESSION - Target session is inactive
+        
+      type: string
+      enum: 
+        - INVALID_ARGUMENT
+        - OUT_OF_RANGE
+        - CONFLICT
+        - UNAUTHENTICATED
+        - PERMISSION_DENIED
+        - NOT_FOUND
+        - INTERNAL
+        - NOT_IMPLEMENTED
+        - UNAVAILABLE
+        - DEVICE_NOT_SPECIFIED
+        - REQUIRED_DEVICE_PROPERTY_NOT_DEFINED
+        - INCONSISTENT_DEVICE_PARAMETERS
+        - CAN_NOT_IDENTIFY_DEVICE
+        - INVALID_PORT
+        - APPLICATION_SERVER_MISSING
+        - QOS_PROFILE_MISSING
+        - INVALID_DEVICE_PORT
+        - QOS_PROFILE_NOT_FOUND
+        - SESSION_NOT_FOUND
+        - SCHEMA_VALIDATION
+        - INACTIVE_SESSION
+        
 
-    Generic401:
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorInfo"
-          example:
-            status: 401
-            code: UNAUTHENTICATED
-            message: "Authorization failed: ..."
-
-    Generic403:
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorInfo"
-          example:
-            status: 403
-            code: PERMISSION_DENIED
-            message: "Operation not allowed: ..."
-
-    SessionNotFound404:
-      description: Session not found
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorInfo"
-          example:
-            status: 404
-            code: NOT_FOUND
-            message: "Session Id does not exist"
-
-    QosProfilesNotFound404:
-      description: Qos Profiles not found
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorInfo"
-          example:
-            status: 404
-            code: NOT_FOUND
-            message: "No QoS Profiles found"
-
-    QosProfileNotFound404:
-      description: Qos Profile not found
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorInfo"
-          example:
-            status: 404
-            code: NOT_FOUND
-            message: "QosProfile Id does not exist"
-
-    Generic500:
-      description: Internal server error
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorInfo"
-          example:
-            status: 500
-            code: INTERNAL
-            message: "Internal server error: ..."
-
-    QoSProfile500:
-      description: Internal server error
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorInfo"
-          example:
-            status: 500
-            code: INTERNAL
-            message: "Internal server error: Could not get QoS Profile"
-
-    Generic501:
-      description: Not Implemented
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorInfo"
-          example:
-            status: 501
-            code: NOT_IMPLEMENTED
-            message: "Service not implemented for the specified user device"
-
-    Generic503:
-      description: Service unavailable
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorInfo"
-          example:
-            status: 503
-            code: UNAVAILABLE
-            message: "Service unavailable"
 
   examples:
     QOS_STATUS_CHANGED_EXAMPLE:
